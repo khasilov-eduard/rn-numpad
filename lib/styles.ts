@@ -4,7 +4,7 @@ export default StyleSheet.create({
   input: {
     width: '100%',
     paddingVertical: 10,
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
   },
   display: {
     padding: 20,
@@ -41,8 +41,8 @@ export default StyleSheet.create({
     width: '33%',
   },
   buttonText: {
-    color: '#888',
-    fontSize: 26,
+    color: '#D9BA7E',
+    fontSize: 32,
     textAlign: 'center',
   },
   hide: {
