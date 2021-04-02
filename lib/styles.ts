@@ -12,22 +12,22 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
   },
   activeDisplay: {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#000',
   },
   activeDisplayText: {},
   invalidDisplayText: {},
   displayText: {
     fontSize: 30,
-    color: '#666',
+    color: '#FFF',
   },
   placeholderDisplayText: {
     color: '#ddd',
   },
   cursor: {
-    borderBottomWidth: 2,
+    borderBottomWidth: 0,
     borderBottomColor: 'transparent',
   },
   pad: {
