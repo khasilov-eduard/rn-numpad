@@ -235,7 +235,7 @@ export default class Display extends Component<DisplayProps, DisplayState> {
               empty ? this.props.placeholderTextStyle : null,
             ]}
           >
-            {empty ? this.state.lastValue : value}
+            ${empty ? this.state.lastValue : value}
           </Text>
         </View>
       </TouchableOpacity>
