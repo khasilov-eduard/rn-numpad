@@ -42,6 +42,7 @@ type DisplayProps = {
   isValid: (val: string) => boolean,
   cursor: boolean,
   autofocus: boolean,
+  mark: String,
   /** Custom number formatter (Advanced)
    * @param str The string to format from
    * @param initial If the value is not in the middle of editing; this is true
@@ -112,6 +113,7 @@ export default class Display extends Component<DisplayProps, DisplayState> {
     minimumDecimalPlaces: 2,
     onFocus: () => { },
     onBlur: () => { },
+    mark: '',
   };
 
   constructor(props: DisplayProps) {
