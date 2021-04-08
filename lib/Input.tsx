@@ -6,17 +6,19 @@ import NumberPadContext from './NumberPadContext';
 import styles from './styles';
 
 const inputs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0'];
+const inputsInteger = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0'];
 
 type InputProps = {
   height: number,
-  position: 'relative'|'absolute',
+  position: 'relative' | 'absolute',
   style?: StyleProp<ViewStyle>,
   backspaceIcon?: JSX.Element,
   hideIcon?: JSX.Element,
-  onWillHide?: ()=>void,
-  onDidHide?: ()=>void,
-  onWillShow?: ()=>void,
-  onDidShow?: ()=>void,
+  onlyInteger: boolean,
+  onWillHide?: () => void,
+  onDidHide?: () => void,
+  onWillShow?: () => void,
+  onDidShow?: () => void,
 }
 
 export default class Input extends Component<InputProps> {
@@ -30,6 +32,7 @@ export default class Input extends Component<InputProps> {
     style: PropTypes.object,
     backspaceIcon: PropTypes.element,
     hideIcon: PropTypes.element,
+    onlyInteger: PropTypes.bool,
     onWillHide: PropTypes.func,
     onDidHide: PropTypes.func,
     onWillShow: PropTypes.func,
@@ -90,26 +93,28 @@ export default class Input extends Component<InputProps> {
     });
     return this.props.position === 'absolute'
       ? {
-          position: 'absolute',
-          bottom: 0,
-          height: this.props.height,
-          transform: [
-            {
-              translateY: interpolation,
-            },
-          ],
-        }
+        position: 'absolute',
+        bottom: 0,
+        height: this.props.height,
+        transform: [
+          {
+            translateY: interpolation,
+          },
+        ],
+      }
       : {
-          height: interpolation,
-        };
+        height: interpolation,
+      };
   };
 
   render() {
+    const { onlyInteger } = this.props;
+    const inputKeyboard = onlyInteger ? inputsInteger : inputs;
     return (
       <Animated.View style={[this.props.style]}>
         <View style={styles.input}>
           <View style={styles.pad}>
-            {inputs.map((value, index) => {
+            {inputKeyboard.map((value, index) => {
               return (
                 <TouchableOpacity
                   key={index}
