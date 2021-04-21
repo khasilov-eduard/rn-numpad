@@ -198,15 +198,17 @@ export default class Display extends Component<DisplayProps, DisplayState> {
   };
 
   onInputEvent = (event: string) => {
+    const tmpValue = this.state.value === '0' ? this.state.lastValue : this.state.value;
     const value = this.format(
       event === 'backspace'
-        ? this.state.value.substring(0, this.state.value.length - 1)
+        ? tmpValue.substring(0, tmpValue.length - 1)
         : `${this.state.value}${event}`
     );
     const valid = this.props.isValid(value);
     this.setState({
       value,
       valid,
+      lastValue: value
     });
     this.props.onChange(parse(this.value(value)));
   };
