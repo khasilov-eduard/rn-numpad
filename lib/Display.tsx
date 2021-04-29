@@ -194,7 +194,8 @@ export default class Display extends Component<DisplayProps, DisplayState> {
 
   value = (value?: string) => {
     value = value ? value : this.state.value;
-    return this.empty(value) ? this.state.lastValue : value;
+    return value;
+    //return this.empty(value) ? this.state.lastValue : value;
   };
 
   onInputEvent = (event: string) => {
