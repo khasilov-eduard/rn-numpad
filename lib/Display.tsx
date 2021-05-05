@@ -214,6 +214,10 @@ export default class Display extends Component<DisplayProps, DisplayState> {
     this.props.onChange(parse(this.value(value)));
   };
 
+  reset = () => {
+    this.setState({ lastValue: '0', value: '0'});
+  };
+
   render() {
     const { valid, value, active } = this.state;
     const empty = this.empty();
