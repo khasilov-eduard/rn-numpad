@@ -19,13 +19,14 @@ const format = (str: string, initial?: boolean, integerPlaces: number = 9, decim
     decimal = str.includes('.');
   }
   whole = whole.replace(/,/g, '').substring(0, integerPlaces);
-  whole = whole ? parseInt(whole).toLocaleString('en-US') : '0';
+  var parts = Number(whole).toString().split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  whole = parts.join('.');
+  // whole = whole ? parseInt(whole).toLocaleString('en-US') : '0';
   part = part.substring(0, decimalPoints);
   part = initial && decimal ? part.padEnd(minimumDecimalPoints, '0') : part;
   return `${whole}${decimal ? '.' : ''}${part}`;
 };
-
-
 
 type DisplayProps = {
   value: number,
