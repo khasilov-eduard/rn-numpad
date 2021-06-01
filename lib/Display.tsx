@@ -161,7 +161,7 @@ export default class Display extends Component<DisplayProps, DisplayState> {
       this.setState({
         active: true,
         lastValue: this.format(this.state.value, true),
-        value: '0',
+//         value: '0',
       });
     }
     this.props.onFocus();
