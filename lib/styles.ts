@@ -1,9 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+import {
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export default StyleSheet.create({
   input: {
     width: '100%',
-    paddingVertical: 10,
+    paddingVertical: 14,
     backgroundColor: 'transparent',
   },
   display: {
@@ -37,12 +40,12 @@ export default StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
+    padding: hp('0.8%'),
     width: '33%',
   },
   buttonText: {
     color: '#D9BA7E',
-    fontSize: 32,
+    fontSize: hp('4%'),
     textAlign: 'center',
   },
   hide: {
